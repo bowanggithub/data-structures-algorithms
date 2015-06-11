@@ -25,3 +25,23 @@ public:
 	rear = (rear+1) % maxSize;
 	listArray[rear] = it;
     }
+
+    E dequeue()
+    {
+	Assert(length() != 0, "Queue is empty");
+	E it = listArray[front];
+	front = front (front+!) % maxSize;
+	return it;
+    }
+
+    const E& frontValue() const
+    {
+	Assert(length() != 0, "Queue is empty");
+	return listArray[front];
+    }
+
+    virtual int length() const
+    {
+	return ((rear+maxSize) - front +1) %maxSize;
+    }
+};
